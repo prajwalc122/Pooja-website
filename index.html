@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="kn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ಪೂಜಾ ಸೇವೆ — ಪೂಜಾ ಸಾಮಗ್ರಿಗಳು, ಪುರೋಹಿತರ ಸೇವೆ ಮತ್ತು ಶುಭ ಕಾರ್ಯಗಳ ವ್ಯವಸ್ಥೆ. Pooja Services & Materials.">
+  <title>ಪೂಜಾ ಸೇವೆ | Pooja Seve</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Kannada:wght@400;500;600;700;800;900&display=swap');
+
+    :root{
+      /* ONLY ORANGE THEME */
+      --bg: #fff0e0;             
+      --surface: #fff8f2;        
+      --surface-2: #ffe5cc;      
+      --text: #4d2300;           
+      --muted: #994700;          
+      --primary: #ff6a00;        
+      --primary-dark: #cc5500;   
+      --gold: #ff9d00;           
+      --gold-soft: #ffebd6;      
+      --brass: #b34a00;          
+      --border: #ffcc99;         
+      
+      --shadow: 0 18px 55px rgba(255, 106, 0, 0.12);
+      --shadow-sm: 0 8px 25px rgba(255, 106, 0, 0.08);
+      --radius: 22px;
+      --container: 1180px;
+    }
+
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:"Noto Sans Kannada","Nirmala UI",Arial,sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.75;
+      overflow-x:hidden;
+    }
+    body.modal-open{overflow:hidden}
+    a{text-decoration:none;color:inherit}
+    button,input,select,textarea{font:inherit}
+    button{cursor:pointer}
+    img{max-width:100%;display:block}
+
+    .container{width:min(var(--container),calc(100% - 40px));margin-inline:auto}
+    .section{padding:100px 0;scroll-margin-top:88px}
+    .section-head{text-align:center;max-width:730px;margin:0 auto 52px}
+    .section-kicker{
+      display:inline-flex;align-items:center;gap:9px;
+      color:var(--primary);font-size:13px;font-weight:800;
+      letter-spacing:.5px;margin-bottom:10px;
+    }
+    .section-kicker::before,.section-kicker::after{
+      content:"";width:24px;height:1px;background:var(--gold);
+    }
+    .section-head h2{
+      color:var(--primary-dark);font-size:clamp(30px,4vw,48px);
+      line-height:1.25;letter-spacing:-.7px;margin-bottom:14px;
+    }
+    .section-head p{color:var(--muted);font-size:16px}
+
+    /* --- LANGUAGE SWITCHER CSS --- */
+    .txt-kn { display: inline; }
+    .txt-en { display: none; }
+    
+    body.lang-en .txt-kn { display: none !important; }
+    body.lang-en .txt-en { display: inline !important; }
+
+    /* For block elements */
+    p.txt-kn, h1.txt-kn, h2.txt-kn, h3.txt-kn, div.txt-kn { display: block; }
+    p.txt-en, h1.txt-en, h2.txt-en, h3.txt-en, div.txt-en { display: none; }
+    body.lang-en p.txt-en, body.lang-en h1.txt-en, body.lang-en h2.txt-en, body.lang-en h3.txt-en, body.lang-en div.txt-en { display: block !important; }
+
+    .lang-toggle-wrapper {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 13px; font-weight: 800; color: var(--primary-dark);
+      background: var(--surface-2); padding: 5px 12px; border-radius: 20px;
+      border: 1px solid var(--border);
+    }
+    .switch { position: relative; display: inline-block; width: 40px; height: 22px; }
+    .switch input { opacity: 0; width: 0; height: 0; }
+    .slider {
+      position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0;
+      background-color: var(--border); transition: .4s; border-radius: 34px;
+    }
+    .slider:before {
+      position: absolute; content: ""; height: 16px; width: 16px; left: 3px; bottom: 3px;
+      background-color: white; transition: .4s; border-radius: 50%;
+    }
+    input:checked + .slider { background-color: var(--primary); }
+    input:checked + .slider:before { transform: translateX(18px); }
+
+    /* Header */
+    .site-header{
+      position:sticky;top:0;z-index:1000;
+      background:rgba(255, 248, 242, 0.86);
+      border-bottom:1px solid var(--border);
+      backdrop-filter:blur(18px);
+    }
+    .nav{
+      min-height:78px;display:flex;align-items:center;
+      justify-content:space-between;gap:20px;
+    }
+    .brand{display:flex;align-items:center;gap:12px; flex:1;}
+    .brand-mark{
+      width:44px;height:44px;border-radius:14px;
+      display:grid;place-items:center;color:#fff;
+      background:linear-gradient(145deg, var(--primary), #ffa34d);
+      box-shadow:0 8px 18px rgba(255,106,0,.22);
+    }
+    .brand-mark svg{width:24px;height:24px}
+    .brand-name{font-size:21px;font-weight:900;color:var(--primary-dark);line-height:1.1}
+    .brand-tag{display:block;color:var(--muted);font-size:10px;font-weight:600;margin-top:2px}
+    
+    .nav-actions { display: flex; align-items: center; gap: 15px; }
+    
+    .nav-links{display:flex;align-items:center;gap:6px;list-style:none}
+    .nav-links a{
+      display:block;padding:10px 13px;border-radius:10px;
+      color:var(--text);font-size:14px;font-weight:700;transition:.25s;
+    }
+    .nav-links a:hover{background:var(--surface-2);color:var(--primary)}
+    .nav-cta{
+      display:inline-flex!important;align-items:center;gap:7px;
+      background:var(--primary)!important;color:#fff!important;
+      box-shadow:0 8px 20px rgba(255,106,0,.16);
+    }
+    .nav-cta:hover{background:var(--primary-dark)!important;transform:translateY(-1px)}
+    .menu-btn{
+      display:none;border:1px solid var(--border);background:var(--surface);
+      width:44px;height:44px;border-radius:12px;color:var(--primary);
+    }
+
+    /* Important info strip */
+    .important-strip{
+      background:linear-gradient(90deg, var(--primary-dark), var(--primary));
+      color:#fff0e0;
+    }
+    .important-strip .container{
+      display:flex;flex-wrap:wrap;gap:10px 28px;align-items:center;justify-content:center;
+      padding:12px 0;font-size:12.5px;font-weight:700;
+    }
+    .important-strip .item{display:flex;align-items:center;gap:8px}
+    .important-strip svg{width:15px;height:15px;color:var(--gold-soft);flex:none}
+
+    /* Hero */
+    .hero{
+      position:relative;min-height:690px;display:flex;align-items:center;
+      overflow:hidden;
+      background:
+        radial-gradient(circle at 78% 18%,rgba(255,106,0,.12),transparent 23%),
+        radial-gradient(circle at 10% 90%,rgba(255,106,0,.08),transparent 25%),
+        linear-gradient(135deg, var(--bg) 0%, var(--surface-2) 48%, var(--gold-soft) 100%);
+    }
+    .hero::before{
+      content:"";position:absolute;width:500px;height:500px;
+      right:-180px;top:-170px;border:1px solid rgba(255,106,0,.12);
+      border-radius:50%;box-shadow:0 0 0 55px rgba(255,106,0,.035),0 0 0 110px rgba(255,106,0,.025);
+    }
+    .hero-grid{
+      display:grid;grid-template-columns:1.05fr .95fr;
+      align-items:center;gap:70px;position:relative;z-index:2;
+    }
+    .eyebrow{
+      display:inline-flex;align-items:center;gap:9px;
+      padding:7px 12px;border:1px solid var(--border);border-radius:999px;
+      background:rgba(255,255,255,.58);color:var(--primary-dark);
+      font-size:13px;font-weight:800;margin-bottom:18px;
+    }
+    .eyebrow-dot{width:7px;height:7px;border-radius:50%;background:var(--primary)}
+    .hero h1{
+      font-size:clamp(38px,5.5vw,72px);line-height:1.13;
+      color:var(--primary-dark);font-weight:900;letter-spacing:-1.4px;margin-bottom:20px;
+    }
+    .hero h1 em{font-style:normal;color:var(--primary)}
+    .hero-text{max-width:610px;color:var(--text);font-size:18px;margin-bottom:30px}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:12px}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:9px;
+      min-height:50px;padding:0 20px;border-radius:12px;
+      border:1px solid transparent;font-size:14px;font-weight:800;
+      transition:.25s ease;
+    }
+    .btn svg{width:18px;height:18px}
+    .btn-primary{
+      background:var(--primary);color:#fff;
+      box-shadow:0 12px 25px rgba(255,106,0,.20);
+    }
+    .btn-primary:hover{background:var(--primary-dark);transform:translateY(-2px);box-shadow:0 16px 30px rgba(255,106,0,.25)}
+    .btn-secondary{background:rgba(255,255,255,.65);border-color:var(--border);color:var(--primary-dark)}
+    .btn-secondary:hover{background:var(--surface);transform:translateY(-2px)}
+    
+    .hero-visual{position:relative;min-height:450px}
+    .mandala{
+      position:absolute;width:390px;height:390px;right:8%;top:25px;
+      border-radius:50%;border:1px solid rgba(255,106,0,.14);
+      box-shadow:0 0 0 28px rgba(255,106,0,.04),0 0 0 56px rgba(255,106,0,.025);
+    }
+    .mandala::before,.mandala::after{
+      content:"";position:absolute;inset:50px;border:1px dashed rgba(255,106,0,.18);border-radius:50%;
+    }
+    .mandala::after{inset:95px;border-style:solid}
+    .hero-card{
+      position:absolute;left:5%;top:65px;width:min(330px,80%);
+      padding:28px;border:1px solid var(--border);
+      background:rgba(255,248,242,.85);backdrop-filter:blur(14px);
+      border-radius:24px;box-shadow:var(--shadow);
+      animation:float 5s ease-in-out infinite;
+    }
+    .hero-card-icon{
+      width:58px;height:58px;display:grid;place-items:center;
+      border-radius:17px;background:var(--surface-2);color:var(--primary);
+      margin-bottom:20px;
+    }
+    .hero-card h3{font-size:22px;color:var(--primary-dark);margin-bottom:8px}
+    .hero-card p{font-size:13px;color:var(--muted)}
+    .hero-card-list{list-style:none;margin-top:18px;display:grid;gap:9px}
+    .hero-card-list li{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:700;color:var(--text)}
+    .hero-card-list svg{width:16px;height:16px;color:var(--primary);flex:none}
+    
+    .floating-badge{
+      position:absolute;right:3%;bottom:50px;padding:14px 17px;
+      background:var(--surface);border:1px solid var(--border);border-radius:16px;
+      box-shadow:var(--shadow-sm);display:flex;align-items:center;gap:11px;
+    }
+    .badge-icon{width:38px;height:38px;border-radius:11px;background:var(--surface-2);display:grid;place-items:center;color:var(--primary)}
+    .floating-badge strong{display:block;color:var(--primary-dark);font-size:13px}
+    .floating-badge span{display:block;color:var(--muted);font-size:11px}
+    @keyframes float{50%{transform:translateY(-9px)}}
+
+    /* Trust strip */
+    .trust{background:var(--surface);border-bottom:1px solid var(--border);border-top:1px solid var(--border)}
+    .trust-grid{display:grid;grid-template-columns:repeat(4,1fr)}
+    .trust-item{
+      display:flex;align-items:center;justify-content:center;gap:12px;
+      min-height:96px;padding:15px;border-right:1px solid var(--border);
+    }
+    .trust-item:last-child{border-right:0}
+    .trust-icon{width:40px;height:40px;border-radius:12px;background:var(--surface-2);color:var(--primary);display:grid;place-items:center}
+    .trust-item strong{display:block;font-size:14px;color:var(--primary-dark)}
+    .trust-item span{display:block;font-size:11px;color:var(--muted)}
+
+    /* Cards */
+    .services{background:var(--bg)}
+    .service-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    .service-card{
+      position:relative;padding:26px;background:var(--surface);
+      border:1px solid var(--border);border-radius:20px;
+      box-shadow:0 5px 0 rgba(255,106,0,.06);
+      transition:.3s ease;overflow:hidden;
+    }
+    .service-card::after{
+      content:"";position:absolute;right:-25px;top:-25px;width:90px;height:90px;
+      border-radius:50%;background:var(--surface-2);
+    }
+    .service-card:hover{transform:translateY(-7px);box-shadow:var(--shadow);border-color:var(--primary)}
+    .service-icon{
+      position:relative;z-index:1;width:47px;height:47px;border-radius:14px;
+      display:grid;place-items:center;background:var(--surface-2);color:var(--primary);
+      margin-bottom:20px;
+    }
+    .service-card h3{font-size:19px;color:var(--primary-dark);margin-bottom:8px}
+    .service-card p{font-size:13px;color:var(--muted);min-height:68px}
+    .card-link{display:inline-flex;align-items:center;gap:5px;color:var(--primary);font-size:12px;font-weight:900;margin-top:17px}
+
+    .materials{background:var(--surface)}
+    .material-tools{ display:grid; grid-template-columns:1fr 260px; gap:14px; margin-bottom:22px; }
+    .material-search{position:relative}
+    .material-search svg{ position:absolute;left:15px;top:50%;transform:translateY(-50%); width:19px;color:var(--primary-dark);pointer-events:none; }
+    .material-search input{ height:52px;width:100%;padding-left:45px;border-radius:14px; background:var(--surface);border:1px solid var(--border);color:var(--text); }
+    .material-tools select{height:52px;border-radius:14px;cursor:pointer;border:1px solid var(--border);padding:0 14px;background:var(--surface);color:var(--text);}
+
+    .material-result-bar{ display:flex;justify-content:space-between;align-items:center;gap:15px; margin-bottom:18px;padding:13px 17px;border-radius:14px; background:var(--surface-2);border:1px solid var(--border); }
+    .material-result-bar strong{color:var(--primary-dark);font-size:14px}
+    .material-result-bar span{color:var(--muted);font-size:12px}
+
+    .material-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+    .material{
+      position:relative;padding:20px;border:1px solid var(--border);border-radius:18px;
+      background:linear-gradient(145deg, var(--surface), var(--bg));transition:.3s;
+    }
+    .material:hover{transform:translateY(-5px);box-shadow:var(--shadow-sm)}
+    .material.is-essential{border-color:var(--primary);background:linear-gradient(145deg, var(--bg), var(--surface-2))}
+    .essential-tag{
+      position:absolute;top:14px;right:14px;padding:3px 9px;border-radius:999px;
+      background:var(--primary);color:#fff;font-size:9px;font-weight:800;letter-spacing:.2px;
+    }
+    .material-icon{ width:45px;height:45px;border-radius:13px;background:var(--surface-2);color:var(--primary); display:grid;place-items:center;margin-bottom:13px;font-size:19px; }
+    .material h3{font-size:15px;color:var(--primary-dark);margin-bottom:6px;padding-right:35px}
+    .material-category{display:inline-block;font-size:10px;font-weight:800;color:var(--muted);margin-bottom:8px}
+    .material-info{display:flex;justify-content:space-between;gap:8px;padding-top:10px;border-top:1px dashed var(--border)}
+    .material-info div{display:flex;flex-direction:column}
+    .material-info small{color:var(--muted);font-size:10px}
+    .material-info strong{color:var(--primary-dark);font-size:12px}
+    .material-price{color:var(--primary)!important}
+    .material-select{
+      width:100%;margin-top:13px;min-height:38px;border:1px solid var(--primary);
+      background:var(--surface);color:var(--primary);border-radius:10px;font-size:11px;font-weight:800;
+    }
+    .material-select.selected{background:var(--primary);color:#fff;border-color:var(--primary)}
+
+    .no-material{display:none;text-align:center;padding:50px 20px;border:1px dashed var(--border);border-radius:18px;background:var(--surface)}
+    .no-material.show{display:block}
+
+    .selected-materials{ display:none;margin-top:35px;padding:25px;border:1px solid var(--border);border-radius:20px; background:linear-gradient(145deg, var(--bg), var(--surface)); }
+    .selected-materials.show{display:block}
+    .selected-head{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:17px}
+    .selected-head h3{color:var(--primary-dark);font-size:21px}
+    .selected-head>strong{color:var(--primary);font-size:13px}
+    .selected-item{display:flex;align-items:center;justify-content:space-between;gap:15px;padding:11px 0;border-bottom:1px solid var(--border)}
+    .selected-item:last-child{border-bottom:0}
+    .selected-item-name{font-size:12px;font-weight:800;color:var(--text)}
+    .selected-item-meta{font-size:10px;color:var(--muted)}
+    .remove-item{width:30px;height:30px;border:0;border-radius:8px;background:var(--surface-2);color:var(--primary-dark);font-size:16px}
+    .selected-total{display:flex;justify-content:space-between;align-items:center;margin-top:15px;padding-top:17px;border-top:2px solid var(--border)}
+    .selected-total span{font-size:13px;color:var(--muted)}
+    .selected-total strong{font-size:22px;color:var(--primary)}
+    .selected-materials .btn{margin-top:18px;width:100%}
+    .selected-hint{font-size:11px;color:var(--muted);margin-top:8px;text-align:center}
+
+    /* Steps */
+    .process{background:var(--surface-2)}
+    .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;position:relative}
+    .steps::before{content:"";position:absolute;top:28px;left:11%;right:11%;border-top:1px dashed var(--primary-dark);opacity:0.3;}
+    .step{text-align:center;position:relative;z-index:1}
+    .step-no{
+      width:58px;height:58px;margin:0 auto 17px;border-radius:50%;display:grid;place-items:center;
+      background:var(--primary);color:#fff;border:7px solid var(--surface-2);font-weight:900;box-shadow:0 0 0 1px var(--primary-dark);
+    }
+    .step h3{font-size:16px;color:var(--primary-dark);margin-bottom:5px}
+    .step p{font-size:12px;color:var(--muted)}
+
+    /* CTA */
+    .cta{padding:80px 0;background:var(--bg)}
+    .cta-box{
+      position:relative;overflow:hidden;text-align:center;padding:65px 25px;border-radius:28px;
+      border:1px solid var(--border);background:linear-gradient(135deg, var(--surface-2), var(--bg));
+    }
+    .cta-box::before,.cta-box::after{content:"";position:absolute;border:1px solid rgba(255,106,0,.15);border-radius:50%}
+    .cta-box::before{width:220px;height:220px;left:-100px;top:-100px}
+    .cta-box::after{width:300px;height:300px;right:-160px;bottom:-170px}
+    .cta-box>*{position:relative;z-index:1}
+    .cta-box h2{font-size:clamp(29px,4vw,45px);color:var(--primary-dark);margin-bottom:10px}
+    .cta-box p{color:var(--text);font-size:14px;margin-bottom:10px}
+
+    /* Footer */
+    footer{background:#331400;color:#ffebd6;padding:65px 0 22px}
+    .footer-grid{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr;gap:45px;margin-bottom:45px}
+    .footer-brand{display:flex;align-items:center;gap:10px;margin-bottom:13px}
+    .footer-brand .brand-mark{width:40px;height:40px}
+    .footer-logo{font-size:20px;font-weight:900;color:#fff}
+    .footer-about p{font-size:12px;color:#ffcc99;max-width:390px}
+    footer h3{font-size:14px;color:#fff;margin-bottom:13px}
+    footer ul{list-style:none;display:grid;gap:7px}
+    footer li,footer a{font-size:12px;color:#ffcc99}
+    footer a:hover{color:var(--primary)}
+    .copyright{border-top:1px solid rgba(255,255,255,.10);padding-top:20px;text-align:center;font-size:11px;color:#cc8855}
+
+    /* Modal */
+    .modal{
+      position:fixed;inset:0;z-index:2000;display:none;place-items:center;
+      padding:20px;background:rgba(77, 35, 0, 0.7);backdrop-filter:blur(6px);
+    }
+    .modal.show{display:grid}
+    .modal-box{
+      width:min(520px,100%);max-height:90vh;overflow:auto;
+      background:var(--bg);border:1px solid var(--border);border-radius:24px;
+      padding:30px;position:relative;box-shadow:0 30px 80px rgba(0,0,0,.22);
+      animation:modalIn .25s ease;
+    }
+    @keyframes modalIn{from{opacity:0;transform:translateY(12px) scale(.98)}to{opacity:1;transform:none}}
+    .close{
+      position:absolute;right:17px;top:15px;width:38px;height:38px;
+      border:0;border-radius:11px;background:var(--surface-2);color:var(--primary-dark);font-size:23px;line-height:1;
+    }
+    .modal-box h2{color:var(--primary-dark);font-size:25px;margin-bottom:4px}
+    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 13px}
+    .form-group{margin-bottom:14px}
+    .form-group.full{grid-column:1/-1}
+    label{display:block;font-size:12px;font-weight:800;color:var(--primary-dark);margin-bottom:5px}
+    input,select,textarea{
+      width:100%;border:1px solid var(--border);background:var(--surface);color:var(--text);outline:none;
+      border-radius:11px;padding:11px 12px;font-size:13px;transition:.2s;
+    }
+    input:focus,select:focus,textarea:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(255,106,0,.15)}
+    textarea{resize:vertical;min-height:85px}
+    .submit-btn{width:100%;margin-top:3px}
+    
+    .toast{
+      position:fixed;left:50%;bottom:25px;z-index:3000;transform:translate(-50%,20px);opacity:0;pointer-events:none;
+      padding:12px 18px;border-radius:12px;background:#331400;color:#fff;font-size:12px;box-shadow:var(--shadow);transition:.3s;
+    }
+    .toast.show{opacity:1;transform:translate(-50%,0)}
+
+    .reveal{opacity:0;transform:translateY(20px);transition:opacity .65s ease,transform .65s ease}
+    .reveal.visible{opacity:1;transform:none}
+
+    @media(max-width:1050px){
+      .nav-links a{padding-inline:8px}
+      .nav-cta{display:none!important}
+      .hero-grid{gap:35px}
+      .service-grid{grid-template-columns:repeat(2,1fr)}
+      .material-grid{grid-template-columns:repeat(2,1fr)}
+      .footer-grid{grid-template-columns:2fr 1fr 1fr}
+      .footer-grid>div:last-child{grid-column:2}
+    }
+
+    @media(max-width:800px){
+      .container{width:min(var(--container),calc(100% - 30px))}
+      .section{padding:75px 0}
+      .menu-btn{display:grid;place-items:center}
+      .nav-links{
+        position:absolute;left:15px;right:15px;top:70px;display:none;flex-direction:column;align-items:stretch;gap:3px;
+        padding:10px;background:var(--bg);border:1px solid var(--border);border-radius:15px;box-shadow:var(--shadow);
+      }
+      .nav-links.open{display:flex}
+      .nav-links a{padding:12px}
+      .nav-cta{display:block!important;text-align:center}
+      .hero{min-height:auto;padding:72px 0 55px}
+      .hero-grid{grid-template-columns:1fr}
+      .hero-visual{min-height:360px}
+      .mandala{width:310px;height:310px;right:8%;top:20px}
+      .hero-card{left:3%;top:45px;width:300px}
+      .floating-badge{right:0;bottom:15px}
+      .trust-grid{grid-template-columns:1fr 1fr}
+      .trust-item:nth-child(2){border-right:0}
+      .trust-item:nth-child(3),.trust-item:nth-child(4){border-top:1px solid var(--border)}
+      .steps{grid-template-columns:1fr 1fr;row-gap:35px}
+      .steps::before{display:none}
+      .footer-grid{grid-template-columns:1fr 1fr}
+      .footer-grid>div:last-child{grid-column:auto}
+      .material-tools{grid-template-columns:1fr}
+    }
+
+    @media(max-width:560px){
+      .brand-name{font-size:18px}
+      .brand-mark{width:40px;height:40px}
+      .hero h1{font-size:36px}
+      .hero-text{font-size:15px}
+      .hero-actions{flex-direction:column}
+      .hero-actions .btn{width:100%}
+      .hero-visual{min-height:330px}
+      .mandala{width:270px;height:270px;right:2%}
+      .hero-card{width:270px;padding:22px;top:35px}
+      .trust-grid{grid-template-columns:1fr}
+      .trust-item{border-right:0!important;border-top:1px solid var(--border)}
+      .trust-item:first-child{border-top:0}
+      .service-grid{grid-template-columns:1fr}
+      .material-grid{grid-template-columns:1fr}
+      .steps{grid-template-columns:1fr}
+      .footer-grid{grid-template-columns:1fr}
+      .form-grid{grid-template-columns:1fr}
+      .form-group.full{grid-column:auto}
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a href="#home" class="brand" aria-label="ಪೂಜಾ ಸೇವೆ ಮುಖಪುಟ">
+        <span class="brand-mark">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+            <path d="M12 3c2.1 2.1 3.2 4.2 3.2 6.2A3.2 3.2 0 0 1 12 12.4a3.2 3.2 0 0 1-3.2-3.2C8.8 7.2 9.9 5.1 12 3Z"/>
+            <path d="M6.5 13.2c-1.1 1-1.7 2.2-1.7 3.5A7.2 7.2 0 0 0 12 23a7.2 7.2 0 0 0 7.2-6.3c0-1.3-.6-2.5-1.7-3.5"/>
+            <path d="M8.5 17.5c1.1 1 2.2 1.5 3.5 1.5s2.4-.5 3.5-1.5"/>
+          </svg>
+        </span>
+        <span>
+          <span class="brand-name"><span class="txt-kn">ಪೂಜಾ ಸೇವೆ</span><span class="txt-en">Pooja Seve</span></span>
+          <span class="brand-tag"><span class="txt-kn">ಭಕ್ತಿ • ಶ್ರದ್ಧೆ • ಸಮರ್ಪಣೆ</span><span class="txt-en">Devotion • Faith • Dedication</span></span>
+        </span>
+      </a>
+
+      <div class="nav-actions">
+        <!-- THE LANGUAGE TOGGLE -->
+        <div class="lang-toggle-wrapper">
+          <span class="kn-label" style="opacity: 0.9;">ಕನ್ನಡ</span>
+          <label class="switch">
+            <input type="checkbox" id="langToggle">
+            <span class="slider"></span>
+          </label>
+          <span class="en-label" style="opacity: 0.9;">EN</span>
+        </div>
+
+        <button class="menu-btn" id="menuBtn" aria-expanded="false">
+          <svg viewBox="0 0 24 24" width="21" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#home"><span class="txt-kn">ಮುಖಪುಟ</span><span class="txt-en">Home</span></a></li>
+          <li><a href="#services"><span class="txt-kn">ಪೂಜಾ ಸೇವೆಗಳು</span><span class="txt-en">Services</span></a></li>
+          <li><a href="#materials"><span class="txt-kn">ಸಾಮಗ್ರಿಗಳು</span><span class="txt-en">Materials</span></a></li>
+          <li><a href="#process"><span class="txt-kn">ವಿಧಾನ</span><span class="txt-en">Process</span></a></li>
+          <li><a class="nav-cta" href="#contact" id="navBook"><span class="txt-kn">ಸಂಪರ್ಕಿಸಿ →</span><span class="txt-en">Book Now →</span></a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <main id="home">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <span class="eyebrow"><span class="eyebrow-dot"></span><span class="txt-kn">ಭಕ್ತಿ • ಶ್ರದ್ಧೆ • ಸಮರ್ಪಣೆ</span><span class="txt-en">Devotion • Faith • Dedication</span></span>
+          <h1 class="txt-kn">ಶಾಸ್ತ್ರೋಕ್ತವಾಗಿ ಪೂಜಾ ವಿಧಿ ವಿಧಾನಗಳನ್ನು<br><em>ನಡೆಸಿಕೊಡಲಾಗುತ್ತದೆ</em></h1>
+          <h1 class="txt-en">Authentic & Traditional Pooja<br><em>Services & Arrangements</em></h1>
+          
+          <p class="hero-text txt-kn">
+            ಪೂಜೆಗೆ ಬೇಕಾದ ಸಾಮಗ್ರಿಗಳು, ಅನುಭವಿ ಪುರೋಹಿತರ ಸೇವೆ ಮತ್ತು ಶುಭ ಕಾರ್ಯಗಳ ವ್ಯವಸ್ಥೆ —
+            ಎಲ್ಲವನ್ನೂ ಒಂದೇ ಸ್ಥಳದಲ್ಲಿ, ಸರಳವಾಗಿ ಮತ್ತು ಸಮಯಕ್ಕೆ ಸರಿಯಾಗಿ.
+          </p>
+          <p class="hero-text txt-en">
+            Complete arrangements including high-quality pooja materials, experienced purohits, and event setups—all in one place, hassle-free and on time.
+          </p>
+          <div class="hero-actions">
+            <button class="btn btn-primary" id="heroBook">
+              <span class="txt-kn">ಪೂಜಾ ಸೇವೆಗಾಗಿ ಸಂಪರ್ಕಿಸಿ</span><span class="txt-en">Book a Pooja Service</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+            <a class="btn btn-secondary" href="#services"><span class="txt-kn">ಲಭ್ಯವಿರುವ ಸೇವೆಗಳು</span><span class="txt-en">Explore Services</span></a>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal">
+          <div class="mandala"></div>
+          <div class="hero-card">
+            <div class="hero-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3v18M3 12h18M5.6 5.6l12.8 12.8M18.4 5.6 5.6 18.4"/><circle cx="12" cy="12" r="5.5"/></svg>
+            </div>
+            <h3 class="txt-kn">ಶುಭ ಕಾರ್ಯಕ್ಕೆ ಸಂಪೂರ್ಣ ವ್ಯವಸ್ಥೆ</h3>
+            <h3 class="txt-en">Complete Arrangements</h3>
+            <p class="txt-kn">ನಿಮ್ಮ ಅಗತ್ಯಕ್ಕೆ ತಕ್ಕಂತೆ ಸೇವೆಗಳನ್ನು ಆಯ್ಕೆ ಮಾಡಿ. ಉಳಿದ ವ್ಯವಸ್ಥೆಯನ್ನು ನಮ್ಮೊಂದಿಗೆ ಸುಲಭವಾಗಿ ಯೋಜಿಸಿ.</p>
+            <p class="txt-en">Choose services tailored to your needs. We handle the entire arrangement easily and efficiently.</p>
+            <ul class="hero-card-list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 4 4L19 6"/></svg> <span class="txt-kn">ಆಯ್ದ ಪೂಜಾ ಸಾಮಗ್ರಿಗಳು</span><span class="txt-en">Quality Materials</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 4 4L19 6"/></svg> <span class="txt-kn">ಪುರೋಹಿತರ ಸೇವೆ</span><span class="txt-en">Purohit Services</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 4 4L19 6"/></svg> <span class="txt-kn">ಸಮಯಕ್ಕೆ ಸರಿಯಾದ ವ್ಯವಸ್ಥೆ</span><span class="txt-en">On-time Management</span></li>
+            </ul>
+          </div>
+
+          <div class="floating-badge">
+            <span class="badge-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v18M5 8h14M6 8c0 3 2.7 5 6 5s6-2 6-5"/><path d="M7 21h10"/></svg></span>
+            <span>
+              <strong class="txt-kn">ಭಕ್ತಿಯಿಂದ ಸೇವೆ</strong><strong class="txt-en">Service with Devotion</strong>
+              <span class="txt-kn">ಸರಳ • ವಿಶ್ವಾಸಾರ್ಹ</span><span class="txt-en">Simple • Reliable</span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="trust">
+      <div class="container trust-grid">
+        <div class="trust-item"><span class="trust-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m5 12 4 4L19 6"/></svg></span><span><strong class="txt-kn">ಗುಣಮಟ್ಟ</strong><strong class="txt-en">Quality</strong><span class="txt-kn">ಆಯ್ದ ಸಾಮಗ್ರಿಗಳು</span><span class="txt-en">Handpicked items</span></span></div>
+        <div class="trust-item"><span class="trust-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="8"/><path d="M12 7v5l3 2"/></svg></span><span><strong class="txt-kn">ಸಮಯ ಪಾಲನೆ</strong><strong class="txt-en">Punctuality</strong><span class="txt-kn">ಸರಿಯಾದ ಸಮಯಕ್ಕೆ</span><span class="txt-en">On-time arrival</span></span></div>
+        <div class="trust-item"><span class="trust-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s8-4 8-10V5l-8-3-8 3v6c0 6 8 10 8 10Z"/></svg></span><span><strong class="txt-kn">ವಿಶ್ವಾಸ</strong><strong class="txt-en">Trust</strong><span class="txt-kn">ಜವಾಬ್ದಾರಿಯುತ ಸೇವೆ</span><span class="txt-en">Responsible service</span></span></div>
+        <div class="trust-item"><span class="trust-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 11.5a8 8 0 1 1-2.3-5.7"/><path d="M20 4v7h-7"/></svg></span><span><strong class="txt-kn">ಸರಳ ವ್ಯವಸ್ಥೆ</strong><strong class="txt-en">Simplicity</strong><span class="txt-kn">ಒಂದೇ ಸ್ಥಳದಲ್ಲಿ</span><span class="txt-en">Everything in one place</span></span></div>
+      </div>
+    </section>
+
+    <section class="section services" id="services">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-kicker"><span class="txt-kn">ಲಭ್ಯ ಇರುವ ಸೇವೆಗಳು</span><span class="txt-en">Available Services</span></span>
+          <h2 class="txt-kn">ನಿಮಗೆ ಲಭ್ಯವಿರುವ ಪೂಜಾ ಸೇವೆಗಳು</h2>
+          <h2 class="txt-en">Our Pooja Services for You</h2>
+          <p class="txt-kn">ನಿಮ್ಮ ಅಗತ್ಯಕ್ಕೆ ತಕ್ಕಂತೆ ಪೂಜಾ ಸೇವೆಯನ್ನು ಆಯ್ಕೆ ಮಾಡಿ ಮತ್ತು ಸುಲಭವಾಗಿ ವ್ಯವಸ್ಥೆ ಮಾಡಿಕೊಳ್ಳಿ.</p>
+          <p class="txt-en">Select the required pooja service and easily organize it with our help.</p>
+        </div>
+
+        <div class="service-grid">
+          <article class="service-card reveal">
+            <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3c2.1 2.1 3.2 4.2 3.2 6.2A3.2 3.2 0 0 1 12 12.4a3.2 3.2 0 0 1-3.2-3.2C8.8 7.2 9.9 5.1 12 3Z"/><path d="M6.5 13.2c-1.1 1-1.7 2.2-1.7 3.5A7.2 7.2 0 0 0 12 23a7.2 7.2 0 0 0 7.2-6.3c0-1.3-.6-2.5-1.7-3.5"/></svg></div>
+            <h3 class="txt-kn">ಗಣೇಶ ಪೂಜೆ</h3><h3 class="txt-en">Ganesha Pooja</h3>
+            <p class="txt-kn">ಶುಭ ಕಾರ್ಯಗಳ ಆರಂಭಕ್ಕಾಗಿ ವಿಶೇಷ ಗಣೇಶ ಪೂಜೆ.</p><p class="txt-en">Special Ganesha pooja for a prosperous beginning.</p>
+          </article>
+          <article class="service-card reveal">
+            <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s8-4 8-10V5l-8-3-8 3v6c0 6 8 10 8 10Z"/></svg></div>
+            <h3 class="txt-kn">ಲಕ್ಷ್ಮೀ ಪೂಜೆ</h3><h3 class="txt-en">Lakshmi Pooja</h3>
+            <p class="txt-kn">ಮನೆ ಮತ್ತು ವ್ಯಾಪಾರದಲ್ಲಿ ಶುಭ ಹಾಗೂ ಸಮೃದ್ಧಿಗಾಗಿ.</p><p class="txt-en">For wealth and prosperity in home and business.</p>
+          </article>
+          <article class="service-card reveal">
+            <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 2v6M12 22v-4M4.9 4.9l3.5 3.5M15.6 15.6l3.5 3.5M2 12h6M20 12h-4M4.9 19.1l3.5-3.5M15.6 8.4l3.5-3.5"/><circle cx="12" cy="12" r="3"/></svg></div>
+            <h3 class="txt-kn">ಶಿವ ಪೂಜೆ</h3><h3 class="txt-en">Shiva Pooja</h3>
+            <p class="txt-kn">ಶಿವನಿಗೆ ವಿಶೇಷ ಪೂಜೆ ಮತ್ತು ಅಭಿಷೇಕ ಸೇವೆ.</p><p class="txt-en">Special pooja and abhisheka for Lord Shiva.</p>
+          </article>
+          <article class="service-card reveal">
+            <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 11 12 4l9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg></div>
+            <h3 class="txt-kn">ಗೃಹಪ್ರವೇಶ</h3><h3 class="txt-en">Gruhapravesha</h3>
+            <p class="txt-kn">ಹೊಸ ಮನೆಯ ಶುಭಾರಂಭಕ್ಕಾಗಿ ವಿಶೇಷ ಪೂಜಾ ವ್ಯವಸ್ಥೆ.</p><p class="txt-en">Auspicious pooja for your new home ceremony.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section materials" id="materials">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-kicker" id="materialsKicker"><span class="txt-kn">ಪೂಜಾ ದ್ರವ್ಯಗಳು</span><span class="txt-en">Pooja Materials</span></span>
+          <h2 class="txt-kn">ಪೂಜೆ ಮತ್ತು ಶುಭ ಕಾರ್ಯಗಳಿಗೆ ಅಗತ್ಯವಾದ ಸಾಮಗ್ರಿಗಳು</h2>
+          <h2 class="txt-en">Essential Materials for Poojas & Events</h2>
+          <p class="txt-kn">ಅಗತ್ಯವಿರುವ ಪೂಜಾ ಸಾಮಗ್ರಿಗಳನ್ನು ಹುಡುಕಿ. <strong style="color:var(--primary)">ಕಿತ್ತಳೆ ಬಣ್ಣದ ಟ್ಯಾಗ್ ಇರುವ ಸಾಮಗ್ರಿಗಳು ಬಹುತೇಕ ಪ್ರತಿ ಪೂಜೆಗೂ ಅಗತ್ಯ.</strong></p>
+          <p class="txt-en">Find required items easily. <strong style="color:var(--primary)">Items with an orange tag are essential for most poojas.</strong></p>
+        </div>
+
+        <div class="material-tools reveal">
+          <div class="material-search">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-4-4"></path></svg>
+            <input type="search" id="materialSearch" class="txt-kn" placeholder="ಸಾಮಗ್ರಿ ಹುಡುಕಿ... ಉದಾ: ಅರಿಶಿನ, ತುಪ್ಪ, ಕಮಲ">
+            <input type="search" id="materialSearchEn" class="txt-en" placeholder="Search items... e.g., Turmeric, Ghee, Lotus">
+          </div>
+          <select id="categoryFilter">
+            <option value="all">ಎಲ್ಲಾ ವಿಭಾಗಗಳು / All Categories</option>
+            <option value="mangala">ಮಂಗಳ ದ್ರವ್ಯಗಳು / Mangala Items</option>
+            <option value="herbs">ಗಿಡಮೂಲಿಕೆಗಳು / Herbs & Roots</option>
+            <option value="samithu">ಸಮಿತ್ತುಗಳು / Samithu Woods</option>
+            <option value="panchagavya">ಪಂಚಗವ್ಯ / Panchagavya & Liquids</option>
+            <option value="navadhanya">ನವಧಾನ್ಯಗಳು / Navadhanya Grains</option>
+            <option value="dryfruits">ಒಣ ಫಲಗಳು / Dry Fruits</option>
+            <option value="fruits">ಹಣ್ಣುಗಳು / Fruits & Veg</option>
+            <option value="flowers">ಪುಷ್ಪಗಳು / Divine Flowers</option>
+            <option value="others">ಇತರೆ ಸಾಮಗ್ರಿಗಳು / Other Tools</option>
+          </select>
+        </div>
+
+        <div class="material-result-bar">
+          <strong id="materialCount"></strong>
+          <span><span class="txt-kn">ನಿಮಗೆ ಬೇಕಾದ ಸಾಮಗ್ರಿಯನ್ನು ಆಯ್ಕೆ ಮಾಡಿ</span><span class="txt-en">Select the items you need</span></span>
+        </div>
+
+        <div class="material-grid" id="materialGrid"></div>
+
+        <div class="no-material" id="noMaterial">
+          <div>🔎</div>
+          <h3 class="txt-kn">ಸಾಮಗ್ರಿ ಕಂಡುಬಂದಿಲ್ಲ</h3><h3 class="txt-en">Item Not Found</h3>
+          <p class="txt-kn">ಬೇರೆ ಹೆಸರಿನಿಂದ ಹುಡುಕಿ.</p><p class="txt-en">Try searching with a different name.</p>
+        </div>
+
+        <div class="selected-materials" id="selectedMaterials">
+          <div class="selected-head">
+            <div>
+              <span class="section-kicker"><span class="txt-kn">ನಿಮ್ಮ ಆಯ್ಕೆ</span><span class="txt-en">Your Selection</span></span>
+              <h3 class="txt-kn">ಆಯ್ಕೆ ಮಾಡಿದ ಸಾಮಗ್ರಿಗಳು</h3><h3 class="txt-en">Selected Materials</h3>
+            </div>
+            <strong id="selectedCount">0 items</strong>
+          </div>
+          <div id="selectedList"></div>
+          <div class="selected-total">
+            <span><span class="txt-kn">ಅಂದಾಜು ಒಟ್ಟು</span><span class="txt-en">Estimated Total</span></span>
+            <strong id="selectedTotal">₹0</strong>
+          </div>
+          <button class="btn btn-primary" id="materialRequestBtn">
+            <span class="txt-kn">ಆಯ್ಕೆ ಮಾಡಿದ ಸಾಮಗ್ರಿಗಳಿಗಾಗಿ ಸಂಪರ್ಕಿಸಿ →</span><span class="txt-en">Contact for Selected Items →</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section process" id="process">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-kicker"><span class="txt-kn">ಸರಳ ವಿಧಾನ</span><span class="txt-en">Simple Process</span></span>
+          <h2 class="txt-kn">ಹೇಗೆ ಕೆಲಸ ಮಾಡುತ್ತದೆ?</h2><h2 class="txt-en">How it Works?</h2>
+          <p class="txt-kn">ನಿಮ್ಮ ಪೂಜಾ ಸೇವೆಯನ್ನು ಪಡೆಯುವುದು ತುಂಬಾ ಸರಳ.</p><p class="txt-en">Getting your pooja services organized is very simple.</p>
+        </div>
+
+        <div class="steps">
+          <div class="step reveal"><div class="step-no">01</div><h3 class="txt-kn">ಪೂಜೆ ಆಯ್ಕೆ ಮಾಡಿ</h3><h3 class="txt-en">Select Pooja</h3><p class="txt-kn">ನಿಮಗೆ ಬೇಕಾದ ಪೂಜಾ ಸೇವೆಯನ್ನು ಆಯ್ಕೆ ಮಾಡಿ.</p><p class="txt-en">Choose the specific pooja service you need.</p></div>
+          <div class="step reveal"><div class="step-no">02</div><h3 class="txt-kn">ಸಾಮಗ್ರಿಗಳು</h3><h3 class="txt-en">Select Items</h3><p class="txt-kn">ಪೂಜೆಗೆ ಬೇಕಾದ ಅಗತ್ಯ ಸಾಮಗ್ರಿಗಳನ್ನು ಪಡೆಯಿರಿ.</p><p class="txt-en">Get the essential materials required for it.</p></div>
+          <div class="step reveal"><div class="step-no">03</div><h3 class="txt-kn">ಪುರೋಹಿತರ ಬುಕಿಂಗ್</h3><h3 class="txt-en">Book Purohit</h3><p class="txt-kn">ಸೂಕ್ತ ಪುರೋಹಿತರನ್ನು ದಿನಾಂಕಕ್ಕೆ ನಿಗದಿ ಮಾಡಿ.</p><p class="txt-en">Schedule experienced purohits for your date.</p></div>
+          <div class="step reveal"><div class="step-no">04</div><h3 class="txt-kn">ಸೇವೆಯನ್ನು ಪಡೆಯಿರಿ</h3><h3 class="txt-en">Get the Service</h3><p class="txt-kn">ಪೂಜೆಗೆ ಬೇಕಾದ ಸೇವೆಗಳನ್ನು ಸರಿಯಾದ ರೀತಿಯಲ್ಲಿ ಪಡೆಯಿರಿ.</p><p class="txt-en">Receive a hassle-free, traditional pooja experience.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta" id="contact">
+      <div class="container">
+        <div class="cta-box reveal">
+          <h2 class="txt-kn">ಪೂಜಾ ಸೇವೆಗಾಗಿ ಇಂದೇ ಸಂಪರ್ಕಿಸಿ</h2><h2 class="txt-en">Contact Us Today for Pooja Services</h2>
+          <p class="txt-kn">ಧಾರ್ಮಿಕ ಕಾರ್ಯಗಳಿಗೆ ಪುರೋಹಿತರು ಮತ್ತು ಅಗತ್ಯ ಸಾಮಾಗ್ರಿಗಳಿಗೆ ಸಂಪರ್ಕಿಸಿ.</p><p class="txt-en">Reach out for reliable purohits and all necessary religious materials.</p>
+          <div class="cta-phone">
+           
+            +91 98765 43210
+          </div>
+          <br>
+          <button class="btn btn-primary" id="ctaBook"><span class="txt-kn">ಪೂಜಾ ಸೇವೆಗಾಗಿ ಸಂಪರ್ಕಿಸಿ →</span><span class="txt-en">Book Now →</span></button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-about">
+          <div class="footer-brand">
+            <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3c2.1 2.1 3.2 4.2 3.2 6.2A3.2 3.2 0 0 1 12 12.4a3.2 3.2 0 0 1-3.2-3.2C8.8 7.2 9.9 5.1 12 3Z"/><path d="M6.5 13.2c-1.1 1-1.7 2.2-1.7 3.5A7.2 7.2 0 0 0 12 23a7.2 7.2 0 0 0 7.2-6.3c0-1.3-.6-2.5-1.7-3.5"/></svg></span>
+            <span class="footer-logo"><span class="txt-kn">ಪೂಜಾ ಸೇವೆ</span><span class="txt-en">Pooja Seve</span></span>
+          </div>
+          <p class="txt-kn">ನಿಮ್ಮ ಪೂಜೆಗೆ ಬೇಕಾದ ಸೇವೆಗಳು ಮತ್ತು ಸಾಮಗ್ರಿಗಳನ್ನು ಒಂದೇ ಸ್ಥಳದಲ್ಲಿ ಪಡೆಯಿರಿ.</p>
+          <p class="txt-en">Get all required services and authentic materials for your poojas in one reliable place.</p>
+        </div>
+        <div>
+          <h3 class="txt-kn">ಪೂಜಾ ಸೇವೆಗಳು</h3><h3 class="txt-en">Services</h3>
+          <ul><li><a href="#services"><span class="txt-kn">ಗಣೇಶ ಪೂಜೆ</span><span class="txt-en">Ganesha Pooja</span></a></li><li><a href="#services"><span class="txt-kn">ಲಕ್ಷ್ಮೀ ಪೂಜೆ</span><span class="txt-en">Lakshmi Pooja</span></a></li><li><a href="#services"><span class="txt-kn">ಶಿವ ಪೂಜೆ</span><span class="txt-en">Shiva Pooja</span></a></li></ul>
+        </div>
+        <div>
+          <h3 class="txt-kn">ನಮ್ಮ ಸೇವೆಗಳು</h3><h3 class="txt-en">Links</h3>
+          <ul><li><a href="#materials"><span class="txt-kn">ಪೂಜಾ ಸಾಮಗ್ರಿಗಳು</span><span class="txt-en">Materials</span></a></li><li><a href="#process"><span class="txt-kn">ವಿಧಾನ</span><span class="txt-en">How it works</span></a></li></ul>
+        </div>
+        <div>
+          <h3 class="txt-kn">ಸಂಪರ್ಕ</h3><h3 class="txt-en">Contact</h3>
+          <ul><li>+91 98765 43210</li><li><span class="txt-kn">ಶಿವಮೊಗ್ಗ, ಕರ್ನಾಟಕ</span><span class="txt-en">Shivamogga, Karnataka</span></li></ul>
+        </div>
+      </div>
+      <div class="copyright">© 2026 <span class="txt-kn">ಪೂಜಾ ಸೇವೆ. ನಿಮ್ಮ ಪೂಜೆ • ನಮ್ಮ ಜವಾಬ್ದಾರಿ.</span><span class="txt-en">Pooja Seve. Devotion • Faith • Dedication.</span></div>
+    </div>
+  </footer>
+
+  <div class="modal" id="bookingModal" aria-hidden="true">
+    <div class="modal-box" role="dialog" aria-modal="true">
+      <button class="close" id="closeModal" aria-label="Close">×</button>
+      <div id="formView">
+        <h2 class="txt-kn">ಪೂಜಾ ಸೇವೆಗಾಗಿ ಸಂಪರ್ಕಿಸಿ</h2><h2 class="txt-en">Contact for Pooja Service</h2>
+        <p class="modal-sub txt-kn">ನಿಮ್ಮ ವಿವರಗಳನ್ನು ನೀಡಿ. ನಿಮ್ಮ ವಿನಂತಿಯನ್ನು ದಾಖಲಿಸಬಹುದು.</p>
+        <p class="modal-sub txt-en">Provide your details to register your request.</p>
+
+        <form id="bookingForm">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="name">ಹೆಸರು / Name *</label>
+              <input id="name" type="text" placeholder="ನಿಮ್ಮ ಹೆಸರು / Your Name" required>
+            </div>
+            <div class="form-group">
+              <label for="phone">ಮೊಬೈಲ್ / Mobile *</label>
+              <input id="phone" type="tel" inputmode="numeric" placeholder="10 Digits" pattern="[0-9]{10}" required>
+            </div>
+            <div class="form-group full">
+              <label for="pooja">ಪೂಜೆಯನ್ನು ಆಯ್ಕೆ ಮಾಡಿ / Select Pooja *</label>
+              <select id="pooja" required>
+                <option value="">ಆಯ್ಕೆ ಮಾಡಿ / Select</option>
+                <option>ಗಣೇಶ ಪೂಜೆ / Ganesha Pooja</option>
+                <option>ಲಕ್ಷ್ಮೀ ಪೂಜೆ / Lakshmi Pooja</option>
+                <option>ಶಿವ ಪೂಜೆ / Shiva Pooja</option>
+                <option>ಗೃಹಪ್ರವೇಶ / Gruhapravesha</option>
+                <option>ಇತರೆ / Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="date">ದಿನಾಂಕ / Date *</label>
+              <input id="date" type="date" required>
+            </div>
+            <div class="form-group">
+              <label for="time">ಸಮಯ / Time</label>
+              <input id="time" type="time">
+            </div>
+            <div class="form-group full">
+              <label for="message">ಮಾಹಿತಿ / Additional Info</label>
+              <textarea id="message" placeholder="ನಿಮ್ಮ ಅಗತ್ಯವನ್ನು ತಿಳಿಸಿ / Describe your requirement"></textarea>
+            </div>
+          </div>
+          <button class="btn btn-primary submit-btn" type="submit"><span class="txt-kn">ವಿನಂತಿ ಸಲ್ಲಿಸಿ</span><span class="txt-en">Submit Request</span></button>
+        </form>
+      </div>
+      <div class="success" id="successView">
+       
+        <h3 class="txt-kn">ವಿನಂತಿ ದಾಖಲಿಸಲಾಗಿದೆ!</h3><h3 class="txt-en">Request Submitted!</h3>
+        <p id="successText"></p>
+        <button class="btn btn-secondary" id="successClose" style="margin-top:18px"><span class="txt-kn">ಮುಚ್ಚಿ</span><span class="txt-en">Close</span></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+    const $ = (selector) => document.querySelector(selector);
+    let isEnglish = false; // Default is Kannada
+
+    /* Language Switcher Logic */
+    $('#langToggle').addEventListener('change', (e) => {
+      isEnglish = e.target.checked;
+      if (isEnglish) {
+        document.body.classList.add('lang-en');
+      } else {
+        document.body.classList.remove('lang-en');
+      }
+      renderGrid();
+      renderSelected();
+    });
+
+    /* Mobile Nav */
+    const menuBtn = $('#menuBtn');
+    const navLinks = $('#navLinks');
+    menuBtn.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', String(open));
+    });
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        menuBtn.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    /* Booking Modal */
+    const modal = $('#bookingModal');
+    const formView = $('#formView');
+    const successView = $('#successView');
+    const form = $('#bookingForm');
+    const messageBox = $('#message');
+
+    function openModal(prefillMessage) {
+      modal.classList.add('show');
+      document.body.classList.add('modal-open');
+      if (prefillMessage) messageBox.value = prefillMessage;
+      setTimeout(() => $('#name').focus(), 80);
+    }
+    function closeModal() {
+      modal.classList.remove('show');
+      document.body.classList.remove('modal-open');
+    }
+    function resetModal() {
+      form.reset();
+      formView.style.display = '';
+      successView.classList.remove('show');
+    }
+
+    $('#heroBook').addEventListener('click', () => openModal());
+    $('#ctaBook').addEventListener('click', () => openModal());
+    $('#navBook').addEventListener('click', e => { e.preventDefault(); openModal(); });
+    $('#closeModal').addEventListener('click', closeModal);
+    $('#successClose').addEventListener('click', () => { resetModal(); closeModal(); });
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      if (!form.reportValidity()) return;
+      const name = $('#name').value.trim();
+      $('#successText').textContent = isEnglish 
+        ? `Thank you ${name}! Your request has been recorded.` 
+        : `ಧನ್ಯವಾದಗಳು ${name}! ನಿಮ್ಮ ವಿನಂತಿಯನ್ನು ದಾಖಲಿಸಲಾಗಿದೆ.`;
+      formView.style.display = 'none';
+      successView.classList.add('show');
+    });
+
+    let toastTimer;
+    function showToast(textKn, textEn) {
+      const toast = $('#toast');
+      toast.textContent = isEnglish ? textEn : textKn;
+      toast.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toast.classList.remove('show'), 2200);
+    }
+
+    /* Materials Data (Dual Language) */
+    const CATEGORY_LABELS = {
+      mangala: { kn: 'ಮುಖ್ಯ ಮಂಗಳ ದ್ರವ್ಯ', en: 'Main Mangala Items' },
+      herbs: { kn: 'ಹೋಮ & ಗಿಡಮೂಲಿಕೆ', en: 'Herbs & Roots' },
+      samithu: { kn: 'ಸಮಿತ್ತು', en: 'Samithu Woods' },
+      panchagavya: { kn: 'ಪಂಚಗವ್ಯ & ಅಭಿಷೇಕ', en: 'Panchagavya & Liquids' },
+      navadhanya: { kn: 'ನವಧಾನ್ಯ', en: 'Navadhanya Grains' },
+      dryfruits: { kn: 'ಒಣ ಫಲ & ನೈವೇದ್ಯ', en: 'Dry Fruits' },
+      fruits: { kn: 'ಹಣ್ಣು & ತರಕಾರಿ', en: 'Fruits & Veg' },
+      flowers: { kn: 'ದೈವಿಕ ಪುಷ್ಪ', en: 'Divine Flowers' },
+      others: { kn: 'ಧಾತು & ಇತರೆ', en: 'Other Tools' }
+    };
+    const CAT_ICON = { mangala:'🪔', herbs:'🌿', samithu:'🪵', panchagavya:'🥛', navadhanya:'🌾', dryfruits:'🥭', fruits:'🍌', flowers:'🌸', others:'🔔' };
+    const UNITS = {
+      mangala: { kn:'ಗ್ರಾಂ', en:'g' }, herbs: { kn:'ಕಟ್ಟು', en:'bunch' }, samithu: { kn:'ಕಟ್ಟು', en:'bunch' },
+      panchagavya: { kn:'ಮಿಲಿ', en:'ml' }, navadhanya: { kn:'ಗ್ರಾಂ', en:'g' }, dryfruits: { kn:'ಗ್ರಾಂ', en:'g' },
+      fruits: { kn:'ಪೀಸ್', en:'pcs' }, flowers: { kn:'ಮಾಲೆ/ಕಟ್ಟು', en:'garland' }, others: { kn:'ಪೀಸ್', en:'pcs' }
+    };
+
+    function make(namesKn, namesEn, category, priceRange, essentialNamesKn) {
+      const essential = new Set(essentialNamesKn || []);
+      return namesKn.map((kn, i) => ({
+        nameKn: kn, nameEn: namesEn[i], category,
+        price: priceRange[0] + Math.floor(Math.random() * (priceRange[1] - priceRange[0])),
+        essential: essential.has(kn)
+      }));
+    }
+
+    const MATERIALS_RAW = [
+      ...make(
+        ['ಅರಿಶಿನ','ಕುಂಕುಮ','ವಿಭೂತಿ','ಶ್ರೀಗಂಧ ಪುಡಿ','ಅಕ್ಷತೆ','ಬಿಳಿ ಎಳ್ಳು','ಹರಳೆಣ್ಣೆ','ಆಕಳ ತುಪ್ಪ','ಕರ್ಪೂರ','ಊದಿನಕಡ್ಡಿ'],
+        ['Turmeric','Kumkum','Vibhuti','Sandalwood Powder','Akshata','White Sesame','Castor Oil','Cow Ghee','Camphor','Incense Sticks'],
+        'mangala', [15,120], ['ಅರಿಶಿನ','ಕುಂಕುಮ','ಅಕ್ಷತೆ','ಆಕಳ ತುಪ್ಪ','ಕರ್ಪೂರ']
+      ),
+      ...make(
+        ['ದರ್ಬೆ ಹುಲ್ಲು','ತುಳಸಿ ಎಲೆ','ಮಾವಿನ ಎಲೆ','ಔದುಂಬರ ಕಡ್ಡಿ','ಲವಂಗ','ಏಲಕ್ಕಿ'],
+        ['Darbha Grass','Tulasi Leaves','Mango Leaves','Audumbara Stick','Cloves','Cardamom'],
+        'herbs', [10,90], ['ದರ್ಬೆ ಹುಲ್ಲು','ಮಾವಿನ ಎಲೆ']
+      ),
+      ...make(
+        ['ಮಾವಿನ ಸಮಿತ್ತು','ಅರಳಿ ಸಮಿತ್ತು','ಬಿಲ್ವ ಸಮಿತ್ತು'],
+        ['Mango Samithu','Peepal Samithu','Bilva Samithu'],
+        'samithu', [30,150], ['ಮಾವಿನ ಸಮಿತ್ತು']
+      ),
+      ...make(
+        ['ಹಸುವಿನ ಹಾಲು','ಮೊಸರು','ಜೇನುತುಪ್ಪ','ಗಂಗಾಜಲ','ಪಂಚಾಮೃತ ಮಿಶ್ರಣ'],
+        ['Cow Milk','Curd','Honey','Gangajal','Panchamruta Mix'],
+        'panchagavya', [20,180], ['ಹಸುವಿನ ಹಾಲು','ಮೊಸರು','ಗಂಗಾಜಲ']
+      ),
+      ...make(
+        ['ಅಕ್ಕಿ','ಗೋಧಿ','ಹೆಸರುಬೇಳೆ','ಉದ್ದಿನಬೇಳೆ'],
+        ['Rice','Wheat','Green Gram','Black Gram'],
+        'navadhanya', [10,60], ['ಅಕ್ಕಿ']
+      ),
+      ...make(
+        ['ಬೆಲ್ಲ','ಗೋಡಂಬಿ','ದ್ರಾಕ್ಷಿ','ಕೊಬ್ಬರಿ'],
+        ['Jaggery','Cashew','Raisins','Dry Coconut'],
+        'dryfruits', [30,220], ['ಬೆಲ್ಲ','ಕೊಬ್ಬರಿ']
+      ),
+      ...make(
+        ['ಬಾಳೆಹಣ್ಣು','ಸೇಬು','ಎಳನೀರು'],
+        ['Banana','Apple','Tender Coconut'],
+        'fruits', [8,90], ['ಬಾಳೆಹಣ್ಣು']
+      ),
+      ...make(
+        ['ಮಲ್ಲಿಗೆ','ಸೇವಂತಿಗೆ','ಕಮಲ','ಚೆಂಡು ಹೂ'],
+        ['Jasmine','Chrysanthemum','Lotus','Marigold'],
+        'flowers', [20,250], ['ಮಲ್ಲಿಗೆ','ಕಮಲ']
+      ),
+      ...make(
+        ['ತಾಮ್ರದ ಕಳಸ','ಹಿತ್ತಾಳೆ ದೀಪ','ಮಣೆ (ಪೀಠ)','ಶಂಖ','ಗಂಟೆ'],
+        ['Copper Kalasha','Brass Lamp','Wooden Seat','Conch (Shankha)','Bell'],
+        'others', [40,900], ['ತಾಮ್ರದ ಕಳಸ','ಗಂಟೆ']
+      )
+    ];
+
+    const MATERIALS = MATERIALS_RAW.map((m, i) => ({ id: 'm' + (i + 1), ...m }));
+
+    /* Render Logic */
+    const grid = $('#materialGrid');
+    const selected = new Map();
+
+    function cardHTML(item) {
+      const name = isEnglish ? item.nameEn : item.nameKn;
+      const catLabel = isEnglish ? CATEGORY_LABELS[item.category].en : CATEGORY_LABELS[item.category].kn;
+      const unit = isEnglish ? UNITS[item.category].en : UNITS[item.category].kn;
+      const essTag = item.essential ? `<span class="essential-tag">${isEnglish ? 'Essential' : 'ಅಗತ್ಯ'}</span>` : '';
+      const btnTxt = selected.has(item.id) 
+        ? (isEnglish ? 'Selected ✓' : 'ಆಯ್ಕೆಯಾಗಿದೆ ✓') 
+        : (isEnglish ? '+ Select' : '+ ಆಯ್ಕೆ ಮಾಡಿ');
+      
+      return `
+        <div class="material${item.essential ? ' is-essential' : ''}" data-id="${item.id}">
+          ${essTag}
+          <div class="material-icon">${CAT_ICON[item.category]}</div>
+          <span class="material-category">${catLabel}</span>
+          <h3>${name}</h3>
+          <div class="material-info">
+            <div><small>${isEnglish ? 'Qty' : 'ಪ್ರಮಾಣ'}</small><strong>1 ${unit}</strong></div>
+            <div><small>${isEnglish ? 'Est. Price' : 'ಅಂದಾಜು ಬೆಲೆ'}</small><strong class="material-price">₹${item.price}</strong></div>
+          </div>
+          <button class="material-select${selected.has(item.id) ? ' selected' : ''}" data-id="${item.id}">${btnTxt}</button>
+        </div>`;
+    }
+
+    function renderGrid() {
+      const q = (isEnglish ? $('#materialSearchEn').value : $('#materialSearch').value).trim().toLowerCase();
+      const cat = $('#categoryFilter').value;
+      
+      const list = MATERIALS.filter(item => {
+        const matchesCat = cat === 'all' || item.category === cat;
+        const itemName = isEnglish ? item.nameEn.toLowerCase() : item.nameKn.toLowerCase();
+        const matchesQ = !q || itemName.includes(q);
+        return matchesCat && matchesQ;
+      });
+
+      grid.innerHTML = list.map(cardHTML).join('');
+      $('#noMaterial').classList.toggle('show', list.length === 0);
+      $('#materialCount').textContent = list.length + (isEnglish ? ' Items' : ' ಸಾಮಗ್ರಿಗಳು');
+    }
+
+    grid.addEventListener('click', e => {
+      const btn = e.target.closest('.material-select');
+      if (!btn) return;
+      const id = btn.dataset.id;
+      const item = MATERIALS.find(m => m.id === id);
+      
+      if (selected.has(id)) {
+        selected.delete(id);
+        showToast(item.nameKn + ' ಪಟ್ಟಿಯಿಂದ ತೆಗೆಯಲಾಗಿದೆ', item.nameEn + ' removed from list');
+      } else {
+        selected.set(id, item);
+        showToast(item.nameKn + ' ಆಯ್ಕೆಯಾಗಿದೆ', item.nameEn + ' selected');
+      }
+      renderGrid();
+      renderSelected();
+    });
+
+    $('#materialSearch').addEventListener('input', renderGrid);
+    $('#materialSearchEn').addEventListener('input', renderGrid);
+    $('#categoryFilter').addEventListener('change', renderGrid);
+
+    /* Selected Panel */
+    function renderSelected() {
+      const items = [...selected.values()];
+      $('#selectedMaterials').classList.toggle('show', items.length > 0);
+      $('#selectedCount').textContent = items.length + ' items';
+
+      $('#selectedList').innerHTML = items.map(item => {
+        const name = isEnglish ? item.nameEn : item.nameKn;
+        const catLabel = isEnglish ? CATEGORY_LABELS[item.category].en : CATEGORY_LABELS[item.category].kn;
+        const unit = isEnglish ? UNITS[item.category].en : UNITS[item.category].kn;
+        return `
+        <div class="selected-item" data-id="${item.id}">
+          <div>
+            <div class="selected-item-name">${name}</div>
+            <div class="selected-item-meta">${catLabel} • 1 ${unit} • ₹${item.price}</div>
+          </div>
+          <button class="remove-item" data-id="${item.id}">×</button>
+        </div>`
+      }).join('');
+
+      const total = items.reduce((sum, i) => sum + i.price, 0);
+      $('#selectedTotal').textContent = '₹' + total;
+    }
+
+    $('#selectedList').addEventListener('click', e => {
+      const btn = e.target.closest('.remove-item');
+      if (!btn) return;
+      selected.delete(btn.dataset.id);
+      renderGrid();
+      renderSelected();
+    });
+
+    $('#materialRequestBtn').addEventListener('click', () => {
+      const items = [...selected.values()];
+      if (items.length === 0) return;
+      const total = items.reduce((sum, i) => sum + i.price, 0);
+      
+      const list = items.map(i => {
+        const name = isEnglish ? i.nameEn : i.nameKn;
+        const unit = isEnglish ? UNITS[i.category].en : UNITS[i.category].kn;
+        return `• ${name} (1 ${unit})`;
+      }).join('\n');
+
+      const msg = isEnglish 
+        ? `Required Materials:\n${list}\n\nEstimated Total: ₹${total}`
+        : `ಬೇಕಾದ ಸಾಮಗ್ರಿಗಳು:\n${list}\n\nಅಂದಾಜು ಒಟ್ಟು: ₹${total}`;
+        
+      openModal(msg);
+    });
+
+    // Init
+    renderGrid();
+    renderSelected();
+
+    /* Reveal animations */
+    const revealItems = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver(e => e.forEach(entry => {
+      if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+    }), {threshold: .12});
+    revealItems.forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
